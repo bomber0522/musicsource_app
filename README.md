@@ -1,24 +1,40 @@
-# README
+## Musicsource Database Design
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users table
 
-Things you may want to cover:
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|email|string|null: false, unique: true|
 
-* Ruby version
+### Association
 
-* System dependencies
+## profiles table
 
-* Configuration
+|Column|Type|Options|
+|------|----|-------|
+|first_name|string|null: false|
+|last_name|string|null: false|
+|address_prefecture|string| |
+|country|string| |
+|phone_number|string|unique: true|
 
-* Database creation
+### Association
 
-* Database initialization
+## Cards table
 
-* How to run the test suite
+|Column|Type|Options|
+|------|----|-------|
+|customer_id|string|null: false, unique: true|
+|card_id|string|null: false, unique: true|
+|user_id|references|null: false, foreign_key: true|
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
 
-* Deployment instructions
+## Prefectures table
 
-* ...
+|Column|Type|Options|
+|------|----|-------|
+|prefecturs|string|null: false, active-hash|
+
+### Association
